@@ -10,10 +10,10 @@ const { components, node } = Astro.props;
 
 const node_type = node.type in components ? node.type : "unknown";
 
-const Component = components[node.type];
+const Component = components[node_type];
 
 console.log(Component);
-console.log(node.type);
+console.log(node_type);
 ---
 
 {
