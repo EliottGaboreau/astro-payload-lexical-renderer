@@ -1,4 +1,5 @@
 
+import Linebreak from "./components/linebreak.astro";
 import Paragraph from "./components/paragraph.astro";
 import Root from "./components/root.astro";
 import Text from "./components/text.astro";
@@ -10,5 +11,6 @@ export const defaultComponents = {
     root: Root,
     paragraph: Paragraph,
     text: Text,
+    linebreak: Linebreak,
     unknown: Unknown,
 }
