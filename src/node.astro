@@ -16,12 +16,12 @@ console.log(node_type);
 
 {
     node.children ? (
-        <Component>
+        <Component node={node}>
             {node.children.map((child) => (
                 <Astro.self components={components} node={child} />
             ))}
         </Component>
     ) : (
-        <Component />
+        <Component node={node} />
     )
 }
