@@ -5,6 +5,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "exports": {
+    ".": "./src/index.ts",
+    "./astro": "./src/node.astro"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
