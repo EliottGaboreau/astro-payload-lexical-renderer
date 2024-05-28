@@ -25,7 +25,7 @@ const is_unformated = ![
 ---
 
 {
-    is_bold && (
+    Boolean(is_bold) && (
         <strong>
             <Astro.self
                 node={{ ...node, format: node.format & ~NodeFormat.IS_BOLD }}
@@ -34,7 +34,7 @@ const is_unformated = ![
     )
 }
 {
-    is_italic && (
+    Boolean(is_italic) && (
         <em>
             <Astro.self
                 node={{ ...node, format: node.format & ~NodeFormat.IS_ITALIC }}
@@ -43,7 +43,7 @@ const is_unformated = ![
     )
 }
 {
-    is_strikethrough && (
+    Boolean(is_strikethrough) && (
         <span class="line-through">
             <Astro.self
                 node={{
@@ -55,7 +55,7 @@ const is_unformated = ![
     )
 }
 {
-    is_underline && (
+    Boolean(is_underline) && (
         <span class="underline">
             <Astro.self
                 node={{
@@ -67,7 +67,7 @@ const is_unformated = ![
     )
 }
 {
-    is_subscript && (
+    Boolean(is_subscript) && (
         <sub>
             <Astro.self
                 node={{
@@ -79,7 +79,7 @@ const is_unformated = ![
     )
 }
 {
-    is_superscript && (
+    Boolean(is_superscript) && (
         <sup>
             <Astro.self
                 node={{
@@ -90,4 +90,4 @@ const is_unformated = ![
         </sup>
     )
 }
-{is_unformated && node.text}
+{Boolean(is_unformated) && node.text}
