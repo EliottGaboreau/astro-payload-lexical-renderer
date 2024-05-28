@@ -1,0 +1,26 @@
+---
+import type { SerializedLexicalNode } from "lexical";
+
+interface Props {
+    node: SerializedLexicalNode;
+    components: Record<string, any>;
+}
+
+const { components, node } = Astro.props;
+
+const node_type = node.type in components ? node.type : "unknown";
+
+const Component = components[node.type];
+---
+
+{
+    node.children ? (
+        <Component>
+            {node.children.map((child) => (
+                <Astro.self components={components} node={child} />
+            ))}
+        </Component>
+    ) : (
+        <Component />
+    )
+}
