@@ -14,7 +14,14 @@ const is_strikethrough =
 const is_underline = !is_strikethrough && node.format & NodeFormat.IS_UNDERLINE;
 const is_subscript = !is_underline && node.format & NodeFormat.IS_SUBSCRIPT;
 const is_superscript = !is_subscript && node.format & NodeFormat.IS_SUPERSCRIPT;
-const is_unformated = !is_superscript;
+const is_unformated = ![
+    is_bold,
+    is_italic,
+    is_strikethrough,
+    is_underline,
+    is_subscript,
+    is_superscript,
+].some(Boolean);
 ---
 
 {
