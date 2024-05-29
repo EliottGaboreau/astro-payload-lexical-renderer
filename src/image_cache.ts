@@ -11,6 +11,9 @@ export async function getCachedImage(image: any) {
     let result: Sharp.Sharp;
 
 
+    console.log("ENTERING");
+
+
     if (!fs.existsSync(path)) {
         if (!fs.existsSync(directory)) {
             fs.mkdirSync(directory, { recursive: true });
@@ -50,6 +53,9 @@ export async function getCachedImage(image: any) {
 
     const a = images[url]();
     console.log(a);
+
+
+    console.log("LEAVIN");
 
     return images[url]();
 }
