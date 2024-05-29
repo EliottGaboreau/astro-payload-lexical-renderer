@@ -41,20 +41,20 @@ export async function getCachedImage(image: any) {
 
     const url = path.slice(1);
 
-    const images = import.meta.glob<{ default: ImageMetadata }>(
-        "/src/assets/*.{webp,jpeg,jpg,png,gif}",
-    );
+    // const images = import.meta.glob<{ default: ImageMetadata }>(
+    //     "/src/assets/*.{webp,jpeg,jpg,png,gif}",
+    // );
 
-    if (!images[url])
-        throw new Error(
-            `"${url}" does not exist in glob: "src/assets/*.{jpeg,jpg,png,gif}"`,
-        );
+    // if (!images[url])
+    //     throw new Error(
+    //         `"${url}" does not exist in glob: "src/assets/*.{jpeg,jpg,png,gif}"`,
+    //     );
 
-    const a = await images[url]();
-    console.log(a);
+    // const a = await images[url]();
+    // console.log(a);
 
 
-    console.log("LEAVIN");
+    // console.log("LEAVIN");
 
-    return images[url]();
+    return url;
 }
