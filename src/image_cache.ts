@@ -8,7 +8,6 @@ export async function getCachedImage(image: any) {
     const filename = `${image.filename.split('.').slice(0, -1).join('.')}.webp`;
 
     const path = `${directory}/${filename}`;
-    let result: Sharp.Sharp;
 
 
     console.log("ENTERING");
@@ -51,7 +50,7 @@ export async function getCachedImage(image: any) {
             `"${url}" does not exist in glob: "src/assets/*.{jpeg,jpg,png,gif}"`,
         );
 
-    const a = images[url]();
+    const a = await images[url]();
     console.log(a);
 
 
