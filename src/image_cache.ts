@@ -16,12 +16,19 @@ export async function getCachedImage(image: any) {
             fs.mkdirSync(directory, { recursive: true });
         }
 
+        console.log(`${import.meta.env.PAYLOAD_API_URL}${image.url}`)
+        console.log({
+            headers: {
+                Authorization: `users API-Key ${import.meta.env.PAYLOAD_API_TOKEN}`,
+            },
+        })
+
         const blob = await fetch(`${import.meta.env.PAYLOAD_API_URL}${image.url}`, {
             headers: {
                 Authorization: `users API-Key ${import.meta.env.PAYLOAD_API_TOKEN}`,
             },
         })
-            .then(response => { console.log(response); return response })
+            // .then(response => { console.log(response); return response })
             .then(response => response.blob())
             .then(blob => blob.arrayBuffer());
 
