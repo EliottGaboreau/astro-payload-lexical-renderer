@@ -9,6 +9,9 @@ const url = await getCachedImage(node.value);
 const images = await import.meta.glob<{ default: ImageMetadata }>(
     "/src/assets/*.{webp,jpeg,jpg,png,gif}",
 );
+
+await url;
+await images;
 ---
 
 <Picture
