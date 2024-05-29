@@ -33,12 +33,8 @@ export async function getCachedImage(image: any) {
             .then(blob => blob.arrayBuffer());
 
         console.log('creating sharp object');
-        result = Sharp(new Uint8Array(blob));
-        await result.toFile(path);
+        await Sharp(new Uint8Array(blob)).toFile(path);
         console.log('created sharp object');
-    }
-    else {
-        result = Sharp(path);
     }
 
     const url = path.slice(1);
@@ -51,6 +47,9 @@ export async function getCachedImage(image: any) {
         throw new Error(
             `"${url}" does not exist in glob: "src/assets/*.{jpeg,jpg,png,gif}"`,
         );
+
+    const a = images[url]();
+    console.log(a);
 
     return images[url]();
 }
