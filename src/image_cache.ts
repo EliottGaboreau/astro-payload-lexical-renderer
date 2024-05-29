@@ -16,11 +16,11 @@ export async function getCachedImage(image: any) {
             fs.mkdirSync(directory, { recursive: true });
         }
 
-        await fetch(`${import.meta.env.PAYLOAD_BASE_URL}${image.url}`, {
-            headers: {
-                Authorization: `users API-Key ${import.meta.env.PAYLOAD_API_TOKEN}`,
-            },
-        }).then(r => console.log(r));
+        // await fetch(`${import.meta.env.PAYLOAD_BASE_URL}${image.url}`, {
+        //     headers: {
+        //         Authorization: `users API-Key ${import.meta.env.PAYLOAD_API_TOKEN}`,
+        //     },
+        // }).then(r => console.log(r));
         console.log(`${import.meta.env.PAYLOAD_BASE_URL}${image.url}`);
 
         const blob = await fetch(`${import.meta.env.PAYLOAD_BASE_URL}${image.url}`, {
