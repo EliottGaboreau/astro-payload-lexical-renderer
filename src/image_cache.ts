@@ -5,10 +5,10 @@ import Sharp from "sharp";
 
 export async function getCachedImage(image: any) {
     const directory = "./src/assets";
-    const filename = `${image.filename}.webp`;
+    const filename = `${image.filename.split('.').slice(0, -1).join('.')}.webp`;
 
     const path = `${directory}/${filename}`;
-    let result;
+    let result: Sharp.Sharp;
 
 
     if (!fs.existsSync(path)) {
@@ -25,7 +25,7 @@ export async function getCachedImage(image: any) {
             .then(blob => blob.arrayBuffer());
 
         result = Sharp(new Uint8Array(blob));
-        result.toFile(path);
+        await result.toFile(path);
     }
     else {
         result = Sharp(path);

@@ -4,7 +4,7 @@ import { getCachedImage } from "../image_cache";
 
 const { node } = Astro.props;
 
-const image_url = getCachedImage(node.value);
+const image_url = await getCachedImage(node.value);
 ---
 
 <Picture
