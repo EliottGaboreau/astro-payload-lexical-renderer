@@ -9,9 +9,12 @@ import Paragraph from "./components/paragraph.astro";
 import Root from "./components/root.astro";
 import Text from "./components/text.astro";
 import Unknown from "./components/unknown.astro";
+import UnknownBlock from "./components/unknown.astro";
+import Upload from "./components/upload.astro";
 
 export const defaultBlockComponents = {
     Gallery: Gallery,
+    unknown: UnknownBlock,
 }
 
 export const defaultComponents = {
@@ -24,6 +27,7 @@ export const defaultComponents = {
     root: Root,
     text: Text,
     unknown: Unknown,
+    upload: Upload,
 }
 
 
