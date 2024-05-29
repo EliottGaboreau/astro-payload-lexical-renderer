@@ -24,8 +24,10 @@ export async function getCachedImage(image: any) {
             .then(response => response.blob())
             .then(blob => blob.arrayBuffer());
 
+        console.log('creating sharp object');
         result = Sharp(new Uint8Array(blob));
         await result.toFile(path);
+        console.log('created sharp object');
     }
     else {
         result = Sharp(path);
