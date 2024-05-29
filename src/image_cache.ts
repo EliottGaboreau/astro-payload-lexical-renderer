@@ -22,7 +22,8 @@ export async function getCachedImage(image: any): Promise<string> {
             .then(response => response.blob())
             .then(blob => blob.arrayBuffer());
 
-        await Sharp(new Uint8Array(blob)).toFile(path);
+        const s = Sharp(new Uint8Array(blob))
+        await s.toFile(path);
     }
 
     const url = path.slice(1);
