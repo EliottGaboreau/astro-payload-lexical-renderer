@@ -1,16 +1,34 @@
 
+import Gallery from "./components/blocks/gallery.astro";
+import Heading from "./components/heading.astro";
+import HorizontalRule from "./components/horizontal_rule.astro";
 import Linebreak from "./components/linebreak.astro";
+import List from "./components/list.astro";
+import ListItem from "./components/list_item.astro";
 import Paragraph from "./components/paragraph.astro";
 import Root from "./components/root.astro";
 import Text from "./components/text.astro";
 import Unknown from "./components/unknown.astro";
 
-
+export const defaultBlockComponents = {
+    Gallery: Gallery,
+}
 
 export const defaultComponents = {
-    root: Root,
-    paragraph: Paragraph,
-    text: Text,
+    heading: Heading,
+    horizontalrule: HorizontalRule,
     linebreak: Linebreak,
+    list: List,
+    listitem: ListItem,
+    paragraph: Paragraph,
+    root: Root,
+    text: Text,
     unknown: Unknown,
 }
+
+
+// LinkHTMLConverter,
+// QuoteHTMLConverter,
+// HorizontalRuleHTMLConverter,
+// UploadHTMLConverter,
+// BlockHtmlConverter,

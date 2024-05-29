@@ -1,5 +1,5 @@
 ---
-
+const { node } = Astro.props;
 ---
 
-<p className="text-2xl">Unknown component</p>
+<p className="text-2xl">Unknown component of type {node.type}</p>

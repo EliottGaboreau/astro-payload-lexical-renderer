@@ -1,17 +1,9 @@
 ---
-import type { SerializedLexicalNode } from "lexical";
-
-interface Props {
-    node: SerializedLexicalNode;
-    components: Record<string, any>;
-}
-
-const { components, node } = Astro.props;
+const { blockComponents, components, node } = Astro.props;
 
 const node_type = node.type in components ? node.type : "unknown";
 
 const Component = components[node_type];
-console.log(node_type);
 ---
 
 {
@@ -22,6 +14,6 @@ console.log(node_type);
             ))}
         </Component>
     ) : (
-        <Component node={node} />
+        <Component blockComponents={blockComponents} node={node} />
     )
 }
