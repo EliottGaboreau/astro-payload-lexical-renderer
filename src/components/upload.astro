@@ -4,7 +4,7 @@ import { getCachedImage } from "../image_cache";
 
 const { node } = Astro.props;
 
-console.log(node.value);
+// console.log(node.value);
 const image_url = await getCachedImage(node.value);
 ---
 
