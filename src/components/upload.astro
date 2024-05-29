@@ -4,19 +4,11 @@ import { getCachedImage } from "../image_cache";
 
 const { node } = Astro.props;
 
-// console.log(node.value);
 const url = await getCachedImage(node.value);
 
-const images = import.meta.glob<{ default: ImageMetadata }>(
+const images = await import.meta.glob<{ default: ImageMetadata }>(
     "/src/assets/*.{webp,jpeg,jpg,png,gif}",
 );
-
-await url;
-await images;
-
-console.log(url);
-
-console.log(images);
 ---
 
 <Picture
