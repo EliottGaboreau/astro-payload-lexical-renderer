@@ -21,6 +21,7 @@ export async function getCachedImage(image: any) {
                 Authorization: `users API-Key ${import.meta.env.PAYLOAD_API_TOKEN}`,
             },
         })
+            .then(response => { console.log(response); return response })
             .then(response => response.blob())
             .then(blob => blob.arrayBuffer());
 
