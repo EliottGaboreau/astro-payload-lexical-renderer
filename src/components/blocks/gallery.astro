@@ -1,3 +1,27 @@
 ---
+import Upload from "../upload.astro";
+
 const { block } = Astro.props;
 ---
+
+<div class="max-w-screen-2xl gap-0 grid grid-cols-1 md:grid-cols-2 m-auto">
+    {
+        [
+            block.images.slice(0, Math.floor(block.images.length / 2)),
+            block.images.slice(Math.floor(block.images.length / 2)),
+        ].map((sub_album) => (
+            <div class="flex flex-col">
+                {sub_album.map((upload) => (
+                    <Upload
+                        node={{
+                            value: {
+                                url: upload.images.url,
+                                filename: upload.images.filename,
+                            },
+                        }}
+                    />
+                ))}
+            </div>
+        ))
+    }
+</div>

@@ -2,7 +2,7 @@
 import { Picture } from "astro:assets";
 import { getCachedImage } from "../image_cache";
 
-const { node } = Astro.props;
+const { node, css_class = "" } = Astro.props;
 
 const url = await getCachedImage(node.value);
 
@@ -11,10 +11,13 @@ const images = await import.meta.glob<{ default: ImageMetadata }>(
 );
 ---
 
-<Picture
-    src={images[url]()}
-    widths={[360, 540, 720, 1200, 1600, node.value.width]}
-    sizes={`(max-width: 360px) 360px, (max-width: 540px) 540px, (max-width: 720px) 720px, (max-width: 1200px) 1200px, (max-width: 1600px) 1600px, ${node.value.width}px`}
-    inferSize
-    alt={node.value.alt || ""}
-/>
+<div class={css_class + " block relative overflow-hidden"}>
+    <Picture
+        src={images[url]()}
+        class="opacity-0 transition-opacity duration-100 ease-out"
+        widths={[360, 540, 720, 1200, 1600, node.value.width]}
+        sizes={`(max-width: 360px) 360px, (max-width: 540px) 540px, (max-width: 720px) 720px, (max-width: 1200px) 1200px, (max-width: 1600px) 1600px, ${node.value.width}px`}
+        inferSize
+        alt={node.value.alt || ""}
+    />
+</div>

@@ -1,4 +1,5 @@
 
+import Block from "./components/block.astro";
 import Gallery from "./components/blocks/gallery.astro";
 import Heading from "./components/heading.astro";
 import HorizontalRule from "./components/horizontal_rule.astro";
@@ -18,6 +19,7 @@ export const defaultBlockComponents = {
 }
 
 export const defaultComponents = {
+    block: Block,
     heading: Heading,
     horizontalrule: HorizontalRule,
     linebreak: Linebreak,
