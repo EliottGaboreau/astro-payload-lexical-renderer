@@ -12,9 +12,11 @@ import Text from "./components/text.astro";
 import Unknown from "./components/unknown.astro";
 import UnknownBlock from "./components/blocks/unknown.astro";
 import Upload from "./components/upload.astro";
+import YoutubeVideo from "./components/blocks/youtube_video.astro";
 
 export const defaultBlockComponents = {
     Gallery: Gallery,
+    YoutubeVideo: YoutubeVideo,
     unknown: UnknownBlock,
 }
 

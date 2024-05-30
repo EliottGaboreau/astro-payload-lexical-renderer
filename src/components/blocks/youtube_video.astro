@@ -1,0 +1,10 @@
+---
+import { getId } from "../../youtube";
+
+const { block } = Astro.props;
+---
+
+<lite-youtube
+    class="m-auto my-4"
+    videoid={getId(block.link)}
+    playlabel={block.blockName}></lite-youtube>
