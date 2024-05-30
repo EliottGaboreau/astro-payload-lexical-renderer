@@ -1,5 +1,6 @@
 ---
 import Upload from "../upload.astro";
+import GalleryItem from "./gallery_item.astro";
 
 const { block } = Astro.props;
 ---
@@ -12,14 +13,7 @@ const { block } = Astro.props;
         ].map((sub_album) => (
             <div class="flex flex-col">
                 {sub_album.map((upload) => (
-                    <Upload
-                        node={{
-                            value: {
-                                url: upload.images.url,
-                                filename: upload.images.filename,
-                            },
-                        }}
-                    />
+                    <GalleryItem upload={upload.images} />
                 ))}
             </div>
         ))
