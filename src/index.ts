@@ -1,2 +1,2 @@
 
-export { defaultComponents } from "./default_components";
+export { defaultComponents, defaultBlockComponents } from "./default_components";
