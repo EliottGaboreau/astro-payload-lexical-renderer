@@ -12,7 +12,11 @@ console.log(blockComponents);
     node.children ? (
         <Component node={node}>
             {node.children.map((child) => (
-                <Astro.self components={components} node={child} />
+                <Astro.self
+                    blockComponents={blockComponents}
+                    components={components}
+                    node={child}
+                />
             ))}
         </Component>
     ) : (
