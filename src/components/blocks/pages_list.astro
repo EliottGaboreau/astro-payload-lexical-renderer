@@ -12,7 +12,7 @@ const { block } = Astro.props;
         ].map((pages) => (
             <div class="flex flex-col">
                 {pages.map((page) => (
-                    <PagesListItem upload={page.page} css_class="m-2" />
+                    <PagesListItem page={page.page} css_class="m-2" />
                 ))}
             </div>
         ))
