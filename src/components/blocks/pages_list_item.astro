@@ -15,11 +15,11 @@ const images = await import.meta.glob<{ default: ImageMetadata }>(
 );
 ---
 
-<div class={css_class + " block relative overflow-hidden"}>
+<div class={css_class + " block group relative overflow-hidden"}>
     <a href=`/${page.slug}`>
     <Picture
         src={images[url]()}
-        class="opacity-0 transition-opacity duration-100 ease-out"
+        class="opacity-0 transition-opacity duration-100 ease-out brightness-50 md:brightness-100 group-hover:brightness-50"
         onload="this.style.opacity = 1"
         widths={[360, 540, 720, 1200, 1600, cover.width]}
         sizes={`(max-width: 360px) 360px, (max-width: 540px) 540px, (max-width: 720px) 720px, (max-width: 1200px) 1200px, (max-width: 1600px) 1600px, ${cover.width}px`}
