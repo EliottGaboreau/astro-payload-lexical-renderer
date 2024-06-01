@@ -1,0 +1,20 @@
+---
+import PagesListItem from "./pages_list_item.astro";
+
+const { block } = Astro.props;
+---
+
+<div class="max-w-screen-2xl gap-0 grid grid-cols-1 md:grid-cols-2 m-auto">
+    {
+        [
+            block.pages.slice(0, Math.floor(block.pages.length / 2)),
+            block.pages.slice(Math.floor(block.pages.length / 2)),
+        ].map((pages) => (
+            <div class="flex flex-col">
+                {pages.map((page) => (
+                    <PagesListItem upload={page.page} css_class="m-2" />
+                ))}
+            </div>
+        ))
+    }
+</div>
