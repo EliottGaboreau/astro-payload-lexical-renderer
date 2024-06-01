@@ -22,7 +22,7 @@ const images = await import.meta.glob<{ default: ImageMetadata }>(
         class="opacity-0 transition-opacity duration-100 ease-out"
         onload="this.style.opacity = 1"
         widths={[360, 540, 720, 1200, 1600, cover.width]}
-        sizes={`(max-width: 360px) 360px, (max-width: 540px) 540px, (max-width: 720px) 720px, (max-width: 1200px) 1200px, (max-width: 1600px) 1600px, ${upload.width}px`}
+        sizes={`(max-width: 360px) 360px, (max-width: 540px) 540px, (max-width: 720px) 720px, (max-width: 1200px) 1200px, (max-width: 1600px) 1600px, ${cover.width}px`}
         inferSize
         alt={cover.alt || ""}
     />
