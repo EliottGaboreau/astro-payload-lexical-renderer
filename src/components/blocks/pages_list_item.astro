@@ -16,7 +16,7 @@ const images = await import.meta.glob<{ default: ImageMetadata }>(
 ---
 
 <div class={css_class + " block relative overflow-hidden"}>
-    <a href=`/${page.slug}`></a>
+    <a href=`/${page.slug}`>
     <Picture
         src={images[url]()}
         class="opacity-0 transition-opacity duration-100 ease-out"
@@ -31,4 +31,5 @@ const images = await import.meta.glob<{ default: ImageMetadata }>(
     >
         {page.title}
     </h2>
+</a>
 </div>
