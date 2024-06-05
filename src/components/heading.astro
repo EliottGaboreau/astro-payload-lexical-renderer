@@ -2,8 +2,17 @@
 const { node } = Astro.props;
 
 const Tag = node.tag;
+
+const class_name_mapping = {
+    h1: "text-5xl bold",
+    h2: "text-2xl bold",
+    h3: "text-lg bold",
+    h4: "text-lg italic",
+    h5: "text-md italic",
+    h6: "text-sm italic",
+};
 ---
 
-<Tag>
+<Tag className={class_name_mapping[Tag]}>
     <slot />
 </Tag>

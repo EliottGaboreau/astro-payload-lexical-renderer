@@ -5,7 +5,17 @@ import GalleryItem from "./gallery_item.astro";
 const { block } = Astro.props;
 ---
 
-<div class="max-w-screen-2xl gap-0 grid grid-cols-1 md:grid-cols-2 m-auto">
+<script type="module">
+    import PhotoSwipeLightbox from "/photoswipe-lightbox.esm.min.js";
+    const lightbox = new PhotoSwipeLightbox({
+        gallery: ".gallery-container",
+        children: "a",
+        pswpModule: () => import("/photoswipe.esm.min.js"),
+    });
+    lightbox.init();
+</script>
+
+<div class="max-w-screen-2xl gap-0 grid grid-cols-2 m-auto gallery-container">
     {
         [
             block.images.slice(0, Math.floor(block.images.length / 2)),
