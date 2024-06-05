@@ -2,6 +2,6 @@
 const { node } = Astro.props;
 ---
 
-<a href={node.url} target={node.newTab ? "_blank" : "_self"}>
+<a href={node.fields.url} target={node.fields.newTab ? "_blank" : "_self"}>
     <slot />
 </a>
