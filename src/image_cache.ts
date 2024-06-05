@@ -12,7 +12,6 @@ export async function getCachedImage(image: any): Promise<string> {
         if (!fs.existsSync(directory)) {
             fs.mkdirSync(directory, { recursive: true });
         }
-        console.log(`${import.meta.env.PAYLOAD_BASE_URL}${image.url}`);
 
         const blob = await fetch(`${import.meta.env.PAYLOAD_BASE_URL}${image.url}`, {
             headers: {

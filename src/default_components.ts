@@ -14,6 +14,7 @@ import UnknownBlock from "./components/blocks/unknown.astro";
 import Upload from "./components/upload.astro";
 import YoutubeVideo from "./components/blocks/youtube_video.astro";
 import PagesList from "./components/blocks/pages_list.astro";
+import Link from "./components/link.astro";
 
 export const defaultBlockComponents = {
     Gallery: Gallery,
@@ -27,6 +28,7 @@ export const defaultComponents = {
     heading: Heading,
     horizontalrule: HorizontalRule,
     linebreak: Linebreak,
+    link: Link,
     list: List,
     listitem: ListItem,
     paragraph: Paragraph,

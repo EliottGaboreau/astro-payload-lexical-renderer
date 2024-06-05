@@ -4,8 +4,6 @@ const { blockComponents, components, node } = Astro.props;
 const node_type = node.type in components ? node.type : "unknown";
 
 const Component = components[node_type];
-console.log(node_type);
-console.log(blockComponents);
 ---
 
 {
