@@ -16,7 +16,7 @@ const { block } = Astro.props;
 </script>
 
 <div class="max-w-screen-2xl gap-0 grid grid-cols-2 m-auto gallery-container">
-    {
+    <!-- {
         [
             block.images.slice(0, Math.floor(block.images.length / 2)),
             block.images.slice(Math.floor(block.images.length / 2)),
@@ -26,6 +26,11 @@ const { block } = Astro.props;
                     <GalleryItem upload={upload.images} css_class="m-2" />
                 ))}
             </div>
+        ))
+    } -->
+    {
+        block.images.map((upload) => (
+            <GalleryItem upload={upload.images} css_class="m-2" />
         ))
     }
 </div>
