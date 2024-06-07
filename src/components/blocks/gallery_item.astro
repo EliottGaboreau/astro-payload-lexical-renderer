@@ -32,7 +32,7 @@ const base64 = await getBase64Placeholder(url);
     <img
         aria-hidden
         alt=""
-        class="absolute inset-0 w-full h-full transform scale-150 filter blur-2xl z-[-1]"
+        class="absolute inset-0 w-full h-full transform scale-150 filter blur-2xl z-[-1] placeholder-image"
         src={base64}
     />
     <Picture
@@ -43,7 +43,6 @@ const base64 = await getBase64Placeholder(url);
         sizes={`(max-width: 360px) 360px, (max-width: 540px) 540px, (max-width: 720px) 720px, (max-width: 1200px) 1200px, (max-width: 1600px) 1600px, ${upload.width}px`}
         inferSize
         alt={upload.alt || ""}
-        onload={"(e) => console.log(e)"}
     />
 </a>
 

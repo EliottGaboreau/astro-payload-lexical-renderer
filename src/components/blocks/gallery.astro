@@ -13,6 +13,12 @@ const { block } = Astro.props;
         pswpModule: () => import("/photoswipe.esm.min.js"),
     });
     lightbox.init();
+
+    window.onload = () => {
+        document
+            .querySelectorAll(".placeholder-image")
+            .map((e) => console.log(e));
+    };
 </script>
 
 <div class="max-w-screen-2xl gap-0 grid grid-cols-2 m-auto gallery-container">
