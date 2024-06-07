@@ -17,7 +17,7 @@ const { block } = Astro.props;
     window.onload = () => {
         document
             .querySelectorAll(".placeholder-image")
-            .map((e) => console.log(e));
+            .forEach((e) => e.remove());
     };
 </script>
 
