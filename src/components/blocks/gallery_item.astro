@@ -1,6 +1,7 @@
 ---
 import { Picture, getImage } from "astro:assets";
 import { getCachedImage } from "../../image_cache";
+import { getBase64Placeholder } from "../../image_placeholder";
 
 const { upload, css_class = "" } = Astro.props;
 
@@ -16,16 +17,24 @@ const dynamicImage = await getImage({
     widths: [360, 540, 720, 1200, 1600, upload.width],
     sizes: `(max-width: 360px) 360px, (max-width: 540px) 540px, (max-width: 720px) 720px, (max-width: 1200px) 1200px, (max-width: 1600px) 1600px, ${upload.width}px`,
 });
+
+const base64 = await getBase64Placeholder(url);
 ---
 
 <a
     href={dynamicImage.src}
-    class="m-1 md:m-2"
+    class="m-1 md:m-2 block relative overflow-hidden"
     data-pswp-width={upload.width}
     data-pswp-height={upload.height}
     data-pswp-srcset={dynamicImage.srcSet.attribute}
     target="_blank"
 >
+    <img
+        aria-hidden
+        alt=""
+        class="absolute inset-0 w-full h-full transform scale-150 filter blur-2xl z-[-1]"
+        src={base64}
+    />
     <Picture
         src={images[url]()}
         class="opacity-0 transition-opacity duration-100 ease-out"
