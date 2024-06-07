@@ -4,7 +4,7 @@ import Sharp from "sharp";
 
 
 export async function getBase64Placeholder(url: string) {
-    const sharp = Sharp(url);
+    const sharp = Sharp('.' + url);
 
     console.log(sharp);
 
