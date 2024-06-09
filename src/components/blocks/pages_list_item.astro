@@ -19,6 +19,8 @@ const images = await import.meta.glob<{ default: ImageMetadata }>(
     <a href=`/${page.slug}`>
         <Picture
             src={images[url]()}
+            format="webp"
+            fallbackFormat="jpg"
             class="opacity-0 transition-opacity duration-100 ease-out brightness-50 md:brightness-100 group-hover:brightness-50"
             onload="this.style.opacity = 1"
             widths={[360, 540, 720, 1200, 1600, cover.width]}
