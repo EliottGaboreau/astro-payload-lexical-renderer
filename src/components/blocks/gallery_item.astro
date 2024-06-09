@@ -45,7 +45,7 @@ const base64 = import.meta.env.PROD ? await getBase64Placeholder(url) : "";
         sizes="50vw"
         inferSize
         alt={upload.alt || ""}
-        onload={"setTimeout(() => event.target.parentElement.previousElementSibling.remove(), 300); this.style.opacity = 1;"}
+        onload={"setTimeout(() => {console.log(event); event.target.parentElement.previousElementSibling.remove()}, 300); this.style.opacity = 1;"}
     />
 </a>
 
