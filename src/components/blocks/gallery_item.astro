@@ -14,6 +14,7 @@ const images = await import.meta.glob<{ default: ImageMetadata }>(
 const dynamicImage = await getImage({
     src: images[url](),
     format: "webp",
+    fallbackFormat: ".jpg",
     widths: [360, 540, 720, 1200, 1600, upload.width],
     sizes: `(max-width: 360px) 360px, (max-width: 540px) 540px, (max-width: 720px) 720px, (max-width: 1200px) 1200px, (max-width: 1600px) 1600px, ${upload.width}px`,
 });
@@ -37,6 +38,8 @@ const base64 = import.meta.env.PROD ? await getBase64Placeholder(url) : "";
     />
     <Picture
         src={images[url]()}
+        format="webp"
+        fallbackFormat=".jpg"
         class="opacity-0 transition-opacity duration-200 ease-in-out"
         widths={[360, 540, 720, 1200, 1600, upload.width]}
         sizes="50vw"
