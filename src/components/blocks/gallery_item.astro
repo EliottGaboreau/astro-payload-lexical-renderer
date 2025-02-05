@@ -7,6 +7,10 @@ const { upload, css_class = "" } = Astro.props;
 
 const url = await getCachedImage(upload);
 
+if (!upload) {
+    return;
+}
+
 var images = await import.meta.glob<{ default: ImageMetadata }>(
     "/src/assets/*.{webp,jpeg,jpg,png,gif}",
 );

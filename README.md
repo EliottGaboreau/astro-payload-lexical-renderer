@@ -39,7 +39,7 @@ export async function getStaticPaths() {
             limit: "100",
         });
 
-        const response = await fetch(`${import.meta.env.PAYLOAD_API_URL}/pages?${params}`, { headers: { Authorization: `users API-Key ${import.meta.env.PAYLOAD_API_TOKEN}` }},).then((r) => r.json());
+        const response = await fetch(`${import.meta.env.PUBLIC_PAYLOAD_API_URL}/pages?${params}`, { headers: { Authorization: `users API-Key ${import.meta.env.PAYLOAD_API_TOKEN}` }},).then((r) => r.json());
 
         const pages = response.docs.map((item) => ({
             params: { slug: item.slug },
