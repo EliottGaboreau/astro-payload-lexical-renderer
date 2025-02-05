@@ -7,9 +7,16 @@ const { upload, css_class = "" } = Astro.props;
 
 const url = await getCachedImage(upload);
 
-const images = await import.meta.glob<{ default: ImageMetadata }>(
+var images = await import.meta.glob<{ default: ImageMetadata }>(
     "/src/assets/*.{webp,jpeg,jpg,png,gif}",
 );
+
+while (!images[url]) {
+    console.log("retrying astro glob import");
+    images = await import.meta.glob<{ default: ImageMetadata }>(
+        "/src/assets/*.{webp,jpeg,jpg,png,gif}",
+    );
+}
 
 const dynamicImage = await getImage({
     src: images[url](),
