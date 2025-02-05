@@ -24,7 +24,8 @@ const { block } = Astro.props;
             <div class="flex flex-col">
                 {sub_album.map(
                     (upload) =>
-                        upload && (
+                        upload &&
+                        upload.images && (
                             <GalleryItem
                                 upload={upload.images}
                                 css_class="m-2"
