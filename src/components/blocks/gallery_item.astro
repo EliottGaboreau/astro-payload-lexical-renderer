@@ -5,11 +5,11 @@ import { getBase64Placeholder } from "../../image_placeholder";
 
 const { upload, css_class = "" } = Astro.props;
 
-const url = await getCachedImage(upload);
-
 if (!upload) {
     return;
 }
+
+const url = await getCachedImage(upload);
 
 var images = await import.meta.glob<{ default: ImageMetadata }>(
     "/src/assets/*.{webp,jpeg,jpg,png,gif}",
