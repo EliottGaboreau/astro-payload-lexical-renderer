@@ -11,8 +11,11 @@ var images = await import.meta.glob<{ default: ImageMetadata }>(
     "/src/assets/*.{webp,jpeg,jpg,png,gif}",
 );
 
+if (!images[url]) {
+    console.log(`retrying astro glob import for image ${url}`);
+}
+
 while (!images[url]) {
-    console.log("retrying astro glob import");
     images = await import.meta.glob<{ default: ImageMetadata }>(
         "/src/assets/*.{webp,jpeg,jpg,png,gif}",
     );
