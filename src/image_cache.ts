@@ -5,7 +5,7 @@ import Sharp from "sharp";
 
 export async function getCachedImage(image: any): Promise<string> {
     const directory = "./src/assets";
-    const name = image.filename || 'undefined';
+    const name = image?.filename || 'undefined';
     const filename = `${name.split('.').slice(0, -1).join('.')}.webp`;
     const path = `${directory}/${filename}`;
 

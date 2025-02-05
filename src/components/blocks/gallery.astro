@@ -22,9 +22,15 @@ const { block } = Astro.props;
             block.images.slice(Math.floor(block.images.length / 2)),
         ].map((sub_album) => (
             <div class="flex flex-col">
-                {sub_album.map((upload) => (
-                    <GalleryItem upload={upload.images} css_class="m-2" />
-                ))}
+                {sub_album.map(
+                    (upload) =>
+                        upload && (
+                            <GalleryItem
+                                upload={upload.images}
+                                css_class="m-2"
+                            />
+                        ),
+                )}
             </div>
         ))
     }
